@@ -65,14 +65,14 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a title="@lang('admin.routes.Rooms')">
+                                        <a title="@lang('admin.routes.Tours')">
                                             <i class="khvich-i fab fa-product-hunt"></i>
-                                            <span class="menu-text">@lang('admin.routes.Rooms')</apan>
+                                            <span class="menu-text">@lang('admin.routes.Tours')</apan>
                                             <span class="sidemn-down-icon fas fa-chevron-down"></span>
                                         </a>
                                         <ul class="nav child_menu">
-                                            <li><a href="{{ route('Products') }}"> @lang('admin.routes.Rooms')</a></li>
-                                            <li><a href="{{ route('ProductCategories') }}"> @lang('admin.categories')</a></li>
+                                            <li><a href="{{ route('Tours') }}"> @lang('admin.routes.Tours')</a></li>
+                                            <li><a href="{{ route('TourCategories') }}"> @lang('admin.categories')</a></li>
                                         </ul>
                                     </li>
                                     <li>

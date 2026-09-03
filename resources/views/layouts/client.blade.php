@@ -23,192 +23,141 @@
     <meta property="og:description" content="@include('layouts.meta-description') - {{ $info->translate->title }}" />
     <meta property="og:image" content="{{ url('/') }}{{ $info->login_bg }}" />
 </head>
-
 <body>
-
-    <header class="header">
+    <section class="header{{ isset($headerClass) ? ' '.$headerClass : '' }}">
+      <header>
         <div class="header-container">
           <div class="header-wrapper">
             <div class="header-logo">
-              <a href="{{  route('ClientHome') }}">
-                <img src="{{ $info->logo }}" alt="{{ $info->slogan }}" />
+              <a class="logo-image" href="{{ route('ClientHome') }}">
+                <img class="logo" src="{{ $info->logo }}" alt="{{ $info->slogan }}" />
               </a>
-            </div>
-            <div class="burger-menu">
-              <div class="top-line"></div>
-              <div class="middle-line"></div>
-              <div class="bottom-line"></div>
-            </div>
-            <div class="header-navigation-wrapper">
-              <nav class="desktop-nav">
-                <ul class="desktop-ul">
-                  <li>
-                    <a class="nav-link" href="{{  route('ClientHome') }}">{{ trans('Home') }}</a>
-                  </li>
-                  <li>
-                    <a class="nav-link" href="{{ route('ClientRooms') }}">{{ trans('Rooms') }}</a>
-                  </li>
-                  <li><a class="nav-link" href="{{ route('ClientServices') }}">{{ trans('Services') }}</a></li>
-                  <li><a class="nav-link" href="{{ route('ClientAbout') }}">{{ trans('About Us') }}</a></li>
-                  <li><a class="nav-link" href="{{ route('ClientContact') }}">{{ trans('Contact') }}</a></li>
-                </ul>
-              </nav>
-            </div>
-            <div class="lang-number-container">
-              <div class="footer-contacts-container phone">
-                <a href="tel:{{ $contact_info->phone }}" target="_blank">{{ $contact_info->phone }}</a>
+              <div class="ending">
+                <div class="select-lang">
+                  @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                    <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                      <div class="lang-container-{{ $localeCode }}{{ locale() == $localeCode ? ' change-lang' : '' }}">
+                        <span class="lang">{{ strtoupper($localeCode) }}</span>
+                      </div>
+                    </a>
+                  @endforeach
+                  <div>
+                    <img src="{{ asset('assets/images/icons/langSwitch.svg') }}" alt="Switch Language" />
+                  </div>
+                </div>
+                <div class="burger-menu">
+                  <div class="top-line"></div>
+                  <div class="middle-line"></div>
+                  <div class="bottom-line"></div>
+                </div>
               </div>
+            </div>
 
-              <div class="select-lang">
-                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                  @if(locale() != $localeCode)
-                  <a rel="alternate" hreflang="{{ $localeCode }}"  href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                          <div class="lang-container-{{ $localeCode }}">
-                              <div class="lang-container-{{ $localeCode }}">
-                                  <span class="lang">{{ $properties['native'] }}</span>
-                          </div>
-                       </div>
-                      </a>
-                  @endif
-              @endforeach
-          </div>
+            <div class="header-navigation-wrapper">
+              <div class="header-navigation-container">
+                <nav class="desktop-nav">
+                  <ul class="desktop-ul">
+                    <li>
+                      <a class="nav-link" href="{{ route('ClientHome') }}">{{ trans('Home') }}</a>
+                      @if(request()->routeIs('ClientHome'))<div class="active-nav-line"></div>@endif
+                    </li>
+                    <li>
+                      <a class="nav-link" href="{{ route('ClientTours') }}">{{ trans('Tours') }}</a>
+                      @if(request()->routeIs('ClientTours') || request()->routeIs('ClientTourInner'))<div class="active-nav-line tours"></div>@endif
+                    </li>
+                    <li>
+                      <a class="nav-link" href="{{ route('ClientAbout') }}">{{ trans('About Us') }}</a>
+                      @if(request()->routeIs('ClientAbout'))<div class="active-nav-line"></div>@endif
+                    </li>
+                    <li>
+                      <a class="nav-link" href="{{ route('ClientContact') }}">{{ trans('Contact') }}</a>
+                      @if(request()->routeIs('ClientContact'))<div class="active-nav-line"></div>@endif
+                    </li>
+                  </ul>
+                </nav>
+              </div>
             </div>
           </div>
-          <span class="header-black-line"></span>
         </div>
 
         <div class="mobile-navigation-wrapper">
           <div class="mobile-navigation">
             <nav class="mobile-nav">
               <ul class="mobile-ul">
-                <li>
-                  <a class="mobile-nav-link" href="{{  route('ClientHome') }}">{{ trans('Home') }}</a>
-                </li>
-                <li>
-                  <a class="mobile-nav-link" href="{{ route('ClientRooms') }}">{{ trans('Rooms') }}</a>
-                </li>
-                <li>
-                  <a class="mobile-nav-link" href="{{ route('ClientServices') }}">{{ trans('Services') }}</a>
-                </li>
-                <li>
-                  <a class="mobile-nav-link" href="{{ route('ClientAbout') }}">{{ trans('About Us') }}</a>
-                </li>
-                <li>
-                  <a class="mobile-nav-link" href="{{ route('ClientContact') }}">{{ trans('Contact') }}</a>
-                </li>
+                <li><a class="mobile-nav-link" href="{{ route('ClientHome') }}">{{ trans('Home') }}</a></li>
+                <li><a class="mobile-nav-link" href="{{ route('ClientTours') }}">{{ trans('Tours') }}</a></li>
+                <li><a class="mobile-nav-link" href="{{ route('ClientAbout') }}">{{ trans('About Us') }}</a></li>
+                <li><a class="mobile-nav-link" href="{{ route('ClientContact') }}">{{ trans('Contact') }}</a></li>
               </ul>
             </nav>
           </div>
-
-          <div class="mobile-select-lang">
-            <a href="#">
-              <div class="mobile-lang-container-eng change-lang">
-                <span class="lang">ENG</span>
-              </div>
-            </a>
-            <a href="#">
-              <div class="mobile-lang-container-geo">
-                <span class="lang">GEO</span>
-              </div>
-            </a>
-          </div>
-          <a class="mobile-number" href="tel:{{ $contact_info->phone }}" target="_blank">
-            {{ $contact_info->phone }}
-          </a>
         </div>
       </header>
+
+        @yield('hero')
+      </section>
 
       @yield('content')
 
       <footer class="footer">
         <div class="footer-wrapper">
-          <span class="footer-black-line"></span>
           <div class="footer-logo">
-            <a href="{{  route('ClientHome') }}">
+            <a href="{{ route('ClientHome') }}">
               <img src="{{ $info->logo }}" alt="{{ $info->slogan }}" />
             </a>
           </div>
           <div class="footer-navigation">
             <nav class="footer-nav">
               <ul class="footer-ul">
-                <li>
-                  <a class="footer-nav-link" href="{{  route('ClientHome') }}">{{ trans('Home') }}</a>
-                </li>
-                <li>
-                  <a class="footer-nav-link" href="{{ route('ClientRooms') }}">{{ trans('Rooms') }}</a>
-                </li>
-                <li>
-                  <a class="footer-nav-link" href="{{ route('ClientServices') }}">{{ trans('Services') }}</a>
-                </li>
-                <li>
-                  <a class="footer-nav-link" href="{{ route('ClientAbout') }}">{{ trans('About Us') }}</a>
-                </li>
-                <li>
-                  <a class="footer-nav-link" href="{{ route('ClientContact') }}">{{ trans('Contact') }}</a>
-                </li>
+                <a class="footer-nav-link" href="{{ route('ClientHome') }}"><li>{{ trans('Home') }}</li></a>
+                <a class="footer-nav-link" href="{{ route('ClientTours') }}"><li>{{ trans('Tours') }}</li></a>
+                <a class="footer-nav-link" href="{{ route('ClientAbout') }}"><li>{{ trans('About Us') }}</li></a>
+                <a class="footer-nav-link" href="{{ route('ClientContact') }}"><li>{{ trans('Contact') }}</li></a>
               </ul>
             </nav>
           </div>
 
-          <div class="select-lang footer">
-          @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-            @if(locale() != $localeCode)
-            <a rel="alternate" hreflang="{{ $localeCode }}"  href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                    <div class="lang-container-{{ $localeCode }}">
-                        <div class="lang-container-{{ $localeCode }}">
-                            <span class="lang">{{ $properties['native'] }}</span>
-                    </div>
-                 </div>
-                </a>
+          <div class="select-lang">
+            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+              <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                <div class="lang-container-{{ $localeCode }}{{ locale() == $localeCode ? ' change-lang' : '' }}">
+                  <span class="lang">{{ strtoupper($localeCode) }}</span>
+                </div>
+              </a>
+            @endforeach
+          </div>
+
+          <div class="footer-soc-icons-wrapper">
+            @if($info->facebook)
+            <div class="soc-wrapper"><a href="{{ $info->facebook }}" target="_blank">Facebook</a></div>
+            <div class="soc-wrapper"><div class="red-dot"></div></div>
             @endif
-        @endforeach
-    </div>
+            @if($info->instagram)
+            <div class="soc-wrapper"><a href="{{ $info->instagram }}" target="_blank">Instagram</a></div>
+            <div class="soc-wrapper"><div class="red-dot"></div></div>
+            @endif
+            @if($info->tiktok)
+            <div class="soc-wrapper"><a href="{{ $info->tiktok }}" target="_blank">TikTok</a></div>
+            <div class="soc-wrapper"><div class="red-dot"></div></div>
+            @endif
+            @if($info->linkedin)
+            <div class="soc-wrapper"><a href="{{ $info->linkedin }}" target="_blank">Linkedin</a></div>
+            @endif
+          </div>
 
           <div class="footer-contacts">
-            <div class="footer-contacts-container phone">
-              <a href="tel:{{ $contact_info->phone }}" target="_blank"> {{ $contact_info->phone }} </a>
-            </div>
-            <div class="footer-contacts-container">
-              <a href="{{ route('ClientContact') }}"> {{ $contact_info->address }}</a>
-            </div>
+            <a href="tel:{{ $contact_info->phone }}">{{ $contact_info->phone }}</a>
           </div>
         </div>
 
-        <div class="footer-socials">
-        @if($info->facebook)
-          <div>
-            <a href="{{ $info->facebook }}" target="_blank"> Facebook</a>
-          </div>
-          @endif
-          @if($info->instagram)
-          <div>
-            <a href="{{ $info->instagram }}" target="_blank"> Instagram </a>
-          </div>
-          @endif
-          @if($info->linkedin)
-          <div>
-            <a href="{{ $info->linkedin }}" target="_blank"> Linkedin </a>
-          </div>
-          @endif
-          @if($info->tiktok)
-          <div>
-            <a href="{{ $info->tiktok }}" target="_blank"> Tiktok </a>
-          </div>
-          @endif
-        </div>
-
-        <div class="footer-bottom">
-          <div class="grey-line"></div>
-
-          <p>Website Created by<span>Ready Web</span></p>
+        <div class="smart-academy">
+          <p>Website Created by</p>
+          <p><a href="https://smartweb.ge" target="_blank">Ready Web</a></p>
         </div>
       </footer>
 
-
 {!! $info->pixel !!}
 {!! $info->analytics !!}
-
-
 
 @stack('scripts')
 <script src="{{ asset('assets/scripts/main.js') }}"></script>

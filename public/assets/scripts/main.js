@@ -1,6 +1,3 @@
-// BURGER MENU FUNCTION -- ორი ვარიანტი 1. მენუზე დაკლიკებისას იშლება მობილურის ნავიგაცია, ხოლო ბურგერ მენიუ ქრება როგორც დიზაინში.
-// 2. ვარიანტი - ბურგერ მენიუზე დაკლიკებისას ირთვება პატარა ანიმაცია ბურგერ მენიუზე.
-
 const burgerMenu = document.querySelector('.burger-menu');
 const mobileNavigationwrapper = document.querySelector(
   '.mobile-navigation-wrapper'
@@ -8,22 +5,22 @@ const mobileNavigationwrapper = document.querySelector(
 const topLine = document.querySelector('.top-line');
 const bottomLine = document.querySelector('.bottom-line');
 const middleLine = document.querySelector('.middle-line');
-
-// BURGER MENU OPEN WITHOUT ANIMATION
-
-// burgerMenu.addEventListener('click', function() {
-//     mobileNavigationwrapper.classList.toggle('active');
-//     burgerMenu.style.display = 'none';
-// });
-
-// BURGER MENU OPEN WITH ANIMATION
+const imageDiv = document.querySelector('.image');
+const detailsContainerDiv = document.querySelector('.details-container');
+const headerLogo = document.querySelector('.header-logo');
 
 burgerMenu.addEventListener('click', function () {
   const isOpen = mobileNavigationwrapper.classList.toggle('active');
   if (isOpen) {
     document.body.style.overflow = 'hidden';
+    imageDiv.style.opacity = '0';
+    detailsContainerDiv.style.opacity = '0';
+    headerLogo.style.borderBottom = '1px solid rgba(0, 0, 0, 0.08)';
   } else {
     document.body.style.overflow = '';
+    imageDiv.style.opacity = '1';
+    detailsContainerDiv.style.opacity = '1';
+    headerLogo.style.borderBottom = '';
   }
 
   topLine.classList.toggle('rotate-top-line', isOpen);
@@ -82,134 +79,64 @@ if (selectLangs && mobileSelectLangs) {
     });
   });
 }
+const buttons = document.querySelectorAll('.filter-buttons button');
+const templates = document.querySelectorAll('.internal-similar-template.tours');
 
-// კატეგორიების ფილტრი
-const filterButtons = document.querySelectorAll('.filter-buttons button');
-const roomTemplates = document.querySelectorAll(
-  '.internal-similar-template.rooms'
-);
-const roomSelectionContainer = document.querySelector(
-  '.room-selection-container'
-);
+buttons.forEach((button) => {
+  button.addEventListener('click', function () {
+    const category = this.getAttribute('data-category');
 
-roomTemplates.forEach((room) => (room.style.display = 'block'));
+    buttons.forEach((btn) => btn.classList.remove('active'));
+    this.classList.add('active');
 
-filterButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    const category = button.getAttribute('data-category');
-
-    filterButtons.forEach((btn) => btn.classList.remove('active'));
-    button.classList.add('active');
-
-    roomTemplates.forEach((room) => {
-      if (
-        category === 'All' ||
-        room.getAttribute('data-category') === category
-      ) {
-        room.style.display = 'block';
+    templates.forEach((template) => {
+      const templateCategory = template.getAttribute('data-category');
+      if (category === 'All' || templateCategory === category) {
+        template.style.display = 'block';
       } else {
-        room.style.display = 'none';
+        template.style.display = 'none';
       }
     });
-    if (category === 'All') {
-      roomSelectionContainer.style.flexDirection = 'column';
-    } else {
-      roomSelectionContainer.style.flexDirection = 'column';
-    }
   });
 });
 
-if (window.location.pathname.includes('rooms.html')) {
-  const buttons = document.querySelectorAll('.room-button');
-  const leftArrow = document.querySelector('.left-arrow img');
-  const rightArrow = document.querySelector('.right-arrow img');
+const carousels = document.querySelectorAll('.main-carousel-container');
 
-  buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-      setActiveButton(button);
-    });
-  });
+carousels.forEach((carouselContainer) => {
+  const carouselId = carouselContainer.getAttribute('data-carousel');
+  const carousel = document.getElementById(`carousel-${carouselId}`);
+  const projects = carousel
+    ? carousel.querySelectorAll('.main-carousel-project')
+    : [];
+  let currentIndex = 0;
 
-  leftArrow.addEventListener('click', () => {
-    changeActiveButton(-1);
-  });
-
-  rightArrow.addEventListener('click', () => {
-    changeActiveButton(1);
-  });
-
-  function setActiveButton(activeButton) {
-    buttons.forEach((button) => button.classList.remove('active'));
-    activeButton.classList.add('active');
+  function shiftLeft() {
+    if (currentIndex > 0) {
+      currentIndex--;
+      carousel.style.transform = `translateX(-${
+        currentIndex * (projects[0].offsetWidth + 20)
+      }px)`;
+    }
   }
 
-  function changeActiveButton(direction) {
-    const currentIndex = Array.from(buttons).findIndex((button) =>
-      button.classList.contains('active')
-    );
-    let newIndex = currentIndex + direction;
-    if (newIndex < 0) newIndex = buttons.length - 1;
-    if (newIndex >= buttons.length) newIndex = 0;
-    setActiveButton(buttons[newIndex]);
+  function shiftRight() {
+    if (currentIndex < projects.length - 1) {
+      currentIndex++;
+      carousel.style.transform = `translateX(-${
+        currentIndex * (projects[0].offsetWidth + 20)
+      }px)`;
+    }
   }
-}
 
-  document.getElementById('bookRoomBtn').addEventListener('click', function () {
-    document.getElementById('popup').style.display = 'block';
-    document.getElementById('dimOverlay').style.display = 'block';
-    document.body.style.overflow = 'hidden';
-  });
+  const leftArrow = document.querySelector(
+    `.main-carousel-arrow-left[data-carousel="${carouselId}"]`
+  );
+  const rightArrow = document.querySelector(
+    `.main-carousel-arrow-right[data-carousel="${carouselId}"]`
+  );
 
-  document.getElementById('closePopup').addEventListener('click', function () {
-    document.getElementById('popup').style.display = 'none';
-    document.getElementById('dimOverlay').style.display = 'none';
-    document.body.style.overflow = '';
-  });
-
-  document.getElementById('dimOverlay').addEventListener('click', function () {
-    document.getElementById('popup').style.display = 'none';
-    document.getElementById('dimOverlay').style.display = 'none';
-    document.body.style.overflow = '';
-  });
-  const checkInHeader = document.querySelector('.popup-header.check-in');
-  const checkOutHeader = document.querySelector('.popup-header.check-out');
-  const checkInCalendar = document.querySelector('.calendar.check-in');
-  const checkOutCalendar = document.querySelector('.calendar.check-out');
-
-  checkInHeader.addEventListener('click', function () {
-    if (window.innerWidth <= 1880) {
-      checkInCalendar.style.display =
-        checkInCalendar.style.display === 'none' ||
-        checkInCalendar.style.display === ''
-          ? 'block'
-          : 'none';
-    }
-  });
-
-  checkOutHeader.addEventListener('click', function () {
-    if (window.innerWidth <= 1880) {
-      checkOutCalendar.style.display =
-        checkOutCalendar.style.display === 'none' ||
-        checkOutCalendar.style.display === ''
-          ? 'block'
-          : 'none';
-    }
-  });
-  document.querySelectorAll('.popup-header-amount').forEach((container) => {
-    const minusBtn = container.querySelector('.minus');
-    const plusBtn = container.querySelector('.plus');
-    const countDisplay = container.querySelector('.count');
-
-    minusBtn.addEventListener('click', () => {
-      let count = parseInt(countDisplay.textContent);
-      if (count > 0) {
-        countDisplay.textContent = count - 1;
-      }
-    });
-
-    plusBtn.addEventListener('click', () => {
-      let count = parseInt(countDisplay.textContent);
-      countDisplay.textContent = count + 1;
-    });
-  });
-
+  if (leftArrow && rightArrow) {
+    leftArrow.addEventListener('click', shiftLeft);
+    rightArrow.addEventListener('click', shiftRight);
+  }
+});

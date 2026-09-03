@@ -52,12 +52,12 @@ class ConfigurationsController extends BaseController
                 'route' => 'Sliders'
             ],
             [
-                'title' => 'products',
-                'route' => 'Products'
+                'title' => 'tours',
+                'route' => 'Tours'
             ],
             [
-                'title' => 'product_categories',
-                'route' => 'ProductCategories'
+                'title' => 'tour_categories',
+                'route' => 'TourCategories'
             ],
             [
                 'title' => 'brands',

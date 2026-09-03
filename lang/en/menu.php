@@ -23,7 +23,7 @@ return [
     'in-cart' => 'In cart',
     'password reset' => 'Reset Password',
     'use_tip' => 'A password reset link will be sent to the specified email',
-    'products' => 'Products',
+    'products' => 'Tours',
     'you_dont_have' => 'You have no ',
-    'rooms' => 'Rooms'
+    'tours' => 'Tours'
 ];

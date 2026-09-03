@@ -82,6 +82,8 @@ return [
     'main_category' => 'პირველი დონის კატეგორია',
     'brand' => 'ბრენდი',
     'price' => 'ფასი',
+    'days' => 'დღეები',
+    'nights' => 'ღამეები',
     'old_price' => 'ძველი ფასი',
     'file_title' => 'ფაილის დასახელება',
     'longitude' => 'გძედი',
@@ -104,7 +106,7 @@ return [
     'unit_price' => 'ერთეულის ფასი',
     'qty' => 'რაოდენობა',
     'sale' => 'ფასდაკლება',
-    'product' => 'პროდუქტი',
+    'product' => 'ტური',
     'ip' => 'IP მისამართი',
     'keyword' => 'საძიებო სიტყვა',
     'search_count' => 'მოიძებნა',
@@ -219,7 +221,8 @@ return [
         'Changelogs' => 'ავტორიზაციები',
         'Operationlogs' => 'ოპერაციები',
         'Services' => 'სერვისები',
-        'Rooms' => 'ნომრები'
+        'Tours' => 'ტურები',
+        'TourCategories' => 'კატეგორიები'
     ],
     'tiktok' => 'Tiktok',
     'main_page' => 'მთავარ გვერდზე',

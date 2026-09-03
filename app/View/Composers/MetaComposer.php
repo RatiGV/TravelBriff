@@ -2,7 +2,7 @@
 
 namespace App\View\Composers;
 
-use App\Models\Product;
+use App\Models\Tour;
 use App\Models\Service;
 use Illuminate\View\View;
 
@@ -27,8 +27,8 @@ class MetaComposer
                 case 'service':
                     $metaTitle =  Service::with('translate')->findOrFail(request()->segment(3))->translate->title;
                     break;
-                case 'room':
-                    $metaTitle = Product::with('translate')->findOrFail(request()->segment(3))->translate->title;
+                case 'tour':
+                    $metaTitle = Tour::with('translate')->findOrFail(request()->segment(3))->translate->title;
                     break;
                 case 'contact':
                     $metaTitle = 'contact';

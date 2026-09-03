@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App;
-use App\Imports\ProductsImport;
-use App\Models\Product;
+use App\Imports\TourImport;
+use App\Models\Tour;
 use App\Models\ProductComponent;
 use DB;
 use Excel;
@@ -111,7 +111,7 @@ class ProductInnerController extends BaseController
         $this->data['main_columns'] = $this->main_columns();
         $this->data['translate_columns'] = $this->translate_columns();
         $this->data['required_columns'] = $this->required_columns;
-        $this->data['templates'] = Product::allItems(locale(),false,false,false,false,true);
+        $this->data['templates'] = Tour::allItems(locale(),false,false,false,false,true);
 
         return view($this->views_folder.'.add', $this->data);
     }
@@ -155,7 +155,7 @@ class ProductInnerController extends BaseController
         $this->data['item'] = $item;
         $this->data['model'] = $this->model;
         $this->data['main_table'] = $this->main_table;
-        $this->data['templates'] = Product::allItems(locale(),false,false,false,false,true);
+        $this->data['templates'] = Tour::allItems(locale(),false,false,false,false,true);
 
         return view($this->views_folder.'.edit', $this->data);
     }
