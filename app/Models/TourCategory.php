@@ -13,6 +13,8 @@ class TourCategory extends Model
 {
     use ActionLog;
 
+    protected $table = 'product_categories';
+
     protected $fillable = ['image'];
 
     private static $current_class = __CLASS__;

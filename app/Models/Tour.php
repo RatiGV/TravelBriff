@@ -14,6 +14,8 @@ class Tour extends Model
 {
     use ActionLog;
 
+    protected $table = 'products';
+
     protected $guarded = [];
 
     private static $current_class = __CLASS__;
