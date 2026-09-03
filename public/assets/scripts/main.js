@@ -32,53 +32,6 @@ burgerMenu.addEventListener('click', function () {
   bottomLine.classList.toggle('rotate-bottom-back', !isOpen);
 });
 
-const selectLangs = document.querySelectorAll('.select-lang');
-const mobileSelectLangs = document.querySelectorAll('.mobile-select-lang');
-
-function toggleLang(containerEng, containerGeo) {
-  containerEng.classList.toggle('change-lang');
-  containerGeo.classList.toggle('change-lang');
-}
-
-function syncLangSelectors(langSelectors) {
-  langSelectors.forEach((selectLang) => {
-    const langContainerEng = selectLang.querySelector('.lang-container-eng');
-    const langContainerGeo = selectLang.querySelector('.lang-container-geo');
-    if (langContainerEng && langContainerGeo) {
-      toggleLang(langContainerEng, langContainerGeo);
-    }
-  });
-}
-
-function syncMobileLangSelectors(mobileLangSelectors) {
-  mobileLangSelectors.forEach((mobileSelectLang) => {
-    const mobileLangContainerEng = mobileSelectLang.querySelector(
-      '.mobile-lang-container-eng'
-    );
-    const mobileLangContainerGeo = mobileSelectLang.querySelector(
-      '.mobile-lang-container-geo'
-    );
-    if (mobileLangContainerEng && mobileLangContainerGeo) {
-      toggleLang(mobileLangContainerEng, mobileLangContainerGeo);
-    }
-  });
-}
-
-if (selectLangs && mobileSelectLangs) {
-  selectLangs.forEach((selectLang) => {
-    selectLang.addEventListener('click', function () {
-      syncLangSelectors(selectLangs);
-      syncMobileLangSelectors(mobileSelectLangs);
-    });
-  });
-
-  mobileSelectLangs.forEach((mobileSelectLang) => {
-    mobileSelectLang.addEventListener('click', function () {
-      syncLangSelectors(selectLangs);
-      syncMobileLangSelectors(mobileSelectLangs);
-    });
-  });
-}
 const buttons = document.querySelectorAll('.filter-buttons button');
 const templates = document.querySelectorAll('.internal-similar-template.tours');
 

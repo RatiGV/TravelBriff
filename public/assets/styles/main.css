@@ -283,6 +283,13 @@ header {
   justify-content: center;
   align-items: center;
 }
+.lang-container-ru {
+  gap: 0.5rem;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .lang-container-ka span {
   line-height: 10px;
   color: #000;
@@ -291,10 +298,17 @@ header {
   line-height: 10px;
   color: #000;
 }
+.lang-container-ru span {
+  line-height: 10px;
+  color: #000;
+}
 .mobile-lang-container-en span {
   line-height: 10px;
 }
 .mobile-lang-container-ka span {
+  line-height: 10px;
+}
+.mobile-lang-container-ru span {
   line-height: 10px;
 }
 .select-lang div {
