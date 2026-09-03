@@ -11,7 +11,7 @@ use View;
 use Lang;
 use App\Models\Admin;
 use App\Models\Information;
-use App\Models\ProductCategory;
+use App\Models\TourCategory;
 
 class BaseController extends Controller 
 {
@@ -425,7 +425,7 @@ class BaseController extends Controller
     
     public function get_categories()
     {
-        $categories = ProductCategory::allItems($this->configuration->admin_lang, $level = false, $status_on = true);
+        $categories = TourCategory::allItems($this->configuration->admin_lang, $level = false, $status_on = true);
         
         if($categories->count())
         {

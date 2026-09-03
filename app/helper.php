@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Information;
-use App\Models\ProductCategory;
+use App\Models\TourCategory;
 use Illuminate\Support\Facades\DB;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use GuzzleHttp\Client;

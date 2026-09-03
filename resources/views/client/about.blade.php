@@ -1,23 +1,23 @@
+@php($headerClass = 'about-us')
 @extends('layouts.client')
-@section('content')
-<main class="rooms-internal-main">
-    <section class="products-internal-wrapper">
-      <div class="products-internal-container services internal">
-        <h1>{{ trans('About') }}</h1>
 
-        <div class="about-us-internal-wrapper">
-          <div class="products-internal-left-column services">
-            {!! $about->description !!}
-          </div>
-          <div class="products-internal-right-column services internal">
-            <img
-              src="{{ $about->image }}"
-              alt="{{ $about->title }}"
-              class="products-internal-large"
-            />
-          </div>
-        </div>
+@section('hero')
+<div class="details-container">
+  <div class="details-wrapper">
+    <div class="tour-details">
+      <h1>{{ trans('About') }}</h1>
+      <div class="about-us-paragraph-wrapper">
+        {!! $about->description !!}
       </div>
-    </section>
-  </main>
+    </div>
+  </div>
+</div>
+<div class="image">
+  <h2 class="responsive-title">{{ trans('About') }}</h2>
+  <div class="color-overlay"></div>
+  <img class="main-placeholder-image about-us" src="{{ $about->image }}" alt="{{ $about->title }}" />
+</div>
+@endsection
+
+@section('content')
 @endsection

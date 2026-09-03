@@ -14,7 +14,9 @@
     "Get to know": "გაეცანით",
     "Other services": "სხვა სერვისები",
     "Get to know the company's services and find a solution for you": "გაეცანით კომპანიის სერვისებს და იპოვეთ თქვენთვის სასრუველი",
-    "Rooms": "ნომრები",
-    "Per night": "ღამეში",
-    "Same Rooms": "მსგავსი ნომრები"
+    "Tours": "ტურები",
+    "Per person": "1 პერსონაზე",
+    "Same Tours": "მსგავსი ტურები",
+    "days": "დღე",
+    "nights": "ღამე"
 }

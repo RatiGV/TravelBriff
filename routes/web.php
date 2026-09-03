@@ -14,12 +14,11 @@ use App\Http\Controllers\Client\AboutController;
 use App\Http\Controllers\Client\ContactController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\ServicesController as ClientServicesController;
-use App\Http\Controllers\Client\RoomsController as ClientRoomsController;
+use App\Http\Controllers\Client\ToursController as ClientToursController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-use App\Http\Controllers\Admin\ProductCategoriesController;
-use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\ProductInnerController;
-use App\Http\Controllers\Admin\ProductsController;
+use App\Http\Controllers\Admin\TourCategoriesController;
+use App\Http\Controllers\Admin\TourController;
+use App\Http\Controllers\Admin\ToursIndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,8 +38,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
    Route::get('/contact',[ContactController::class,'index'])->name('ClientContact');
    Route::get('/service/{id}',[ClientServicesController::class,'inner'])->name('ClientServiceInner');
    Route::get('/services',[ClientServicesController::class,'index'])->name('ClientServices');
-   Route::get('/rooms',[ClientRoomsController::class,'index'])->name('ClientRooms');
-   Route::get('/room/{room}',[ClientRoomsController::class,'inner'])->name('ClientRoomInner');
+   Route::get('/tours',[ClientToursController::class,'index'])->name('ClientTours');
+   Route::get('/tour/{tour}',[ClientToursController::class,'inner'])->name('ClientTourInner');
 });
 
 Route::get('/admin/login', [LoginController::class, 'index'])->middleware('AdminLogin')->name('LoginPageAdmin');
@@ -73,31 +72,31 @@ Route::middleware(['admin', 'check_permission'])->group(function () {
         // ვიდეოს წაშლა გალერიიდან
         Route::post('/remove_video_from_gallery', [BaseController::class, 'remove_video_from_gallery'])->name('RemoveVideoFromGallery');
 
-        Route::prefix('rooms')->group(function () {
+        Route::prefix('tours')->group(function () {
 
-            Route::get('/', [ProductsController::class, 'index'])->name('ProductsIndex');
+            Route::get('/', [ToursIndexController::class, 'index'])->name('ToursIndex');
 
-            // პროდუქტი
-            Route::prefix('/rooms')->group(function () {
-                Route::get('/', [ProductController::class, 'index'])->name('Products');
-                Route::get('/add', [ProductController::class, 'create'])->name('AddProducts');
-                Route::post('create', [ProductController::class, 'store'])->name('StoreProducts');
-                Route::get('/edit/{id}/{page?}', [ProductController::class, 'edit'])->name('EditProducts');
-                Route::post('update/{id}', [ProductController::class, 'update'])->name('UpdateProducts');
-                Route::post('/remove_color_images', [ProductController::class, 'RemoveColorImages'])->name('RemoveColorImageProducts');
-                Route::get('/search', [ProductController::class, 'search'])->name('SearchProducts');
-                Route::post('/livesearch', [ProductController::class, 'live_search'])->name('LiveSearchProducts');
-                Route::get('/import', [ProductController::class, 'import'])->name('ImportProducts');
-                Route::post('/import', [ProductController::class, 'upload'])->name('UploadProducts');
+            // ტური
+            Route::prefix('/tours')->group(function () {
+                Route::get('/', [TourController::class, 'index'])->name('Tours');
+                Route::get('/add', [TourController::class, 'create'])->name('AddTours');
+                Route::post('create', [TourController::class, 'store'])->name('StoreTours');
+                Route::get('/edit/{id}/{page?}', [TourController::class, 'edit'])->name('EditTours');
+                Route::post('update/{id}', [TourController::class, 'update'])->name('UpdateTours');
+                Route::post('/remove_color_images', [TourController::class, 'RemoveColorImages'])->name('RemoveColorImageTours');
+                Route::get('/search', [TourController::class, 'search'])->name('SearchTours');
+                Route::post('/livesearch', [TourController::class, 'live_search'])->name('LiveSearchTours');
+                Route::get('/import', [TourController::class, 'import'])->name('ImportTours');
+                Route::post('/import', [TourController::class, 'upload'])->name('UploadTours');
             });
 
             // კატეგორიები
             Route::prefix('/categories')->group(function () {
-                Route::get('/', [ProductCategoriesController::class, 'index'])->name('ProductCategories');
-                Route::get('/add', [ProductCategoriesController::class, 'create'])->name('AddProductCategories');
-                Route::post('create', [ProductCategoriesController::class, 'store'])->name('StoreProductCategories');
-                Route::get('/edit/{id}', [ProductCategoriesController::class, 'edit'])->name('EditProductCategories');
-                Route::post('update/{id}', [ProductCategoriesController::class, 'update'])->name('UpdateProductCategories');
+                Route::get('/', [TourCategoriesController::class, 'index'])->name('TourCategories');
+                Route::get('/add', [TourCategoriesController::class, 'create'])->name('AddTourCategories');
+                Route::post('create', [TourCategoriesController::class, 'store'])->name('StoreTourCategories');
+                Route::get('/edit/{id}', [TourCategoriesController::class, 'edit'])->name('EditTourCategories');
+                Route::post('update/{id}', [TourCategoriesController::class, 'update'])->name('UpdateTourCategories');
             });
 
         });
