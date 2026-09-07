@@ -188,7 +188,7 @@
                             <button type="button" class="btn btn-success save-btn"  data-stay="0">
                                 @lang('admin.save_and_close')
                             </button>
-                            <a href="{{ route($routes_suffix) }}" class="btn btn-warning">
+                            <a href="/admin" class="btn btn-warning">
                                 @lang('admin.cancel')
                             </a>
                         </div>
