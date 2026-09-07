@@ -389,7 +389,8 @@ header {
 .header {
   display: grid;
   grid-template-columns: 42% 58%;
-  grid-template-rows: 0.2fr 1fr;
+  /*grid-template-rows: 0.2fr 1fr;*/
+  grid-template-rows: auto;
   margin: 0;
   position: relative;
 }
@@ -428,6 +429,10 @@ header {
   font-family: FiraGO;
   font-size: 0.875rem;
   color: #000;
+}
+.main-details
+.tour-details {
+    gap:3rem;
 }
 .tour-details {
   display: flex;
@@ -750,7 +755,34 @@ footer .select-lang {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 index
+
+
+
+
+
+
+
+
+
 
 
 
@@ -789,6 +821,9 @@ index
   font-family: FiraGo;
   cursor: pointer;
   background-color: transparent;
+}
+.rooms-main .image-container {
+    display: flex;
 }
 .image-container {
   position: relative;
@@ -1401,7 +1436,79 @@ index
 /* 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Tours
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1464,7 +1571,7 @@ Tours
   margin-top: 3rem;
 }
 .room-buttons h1 {
-  font-family: San Miguel;
+  font-family: FiraGo;
   font-size: 5rem;
   color: #2e2e2e;
   font-weight: 400;
@@ -1500,7 +1607,7 @@ Tours
   color: #7f7f7f;
 }
 .template-description {
-  font-family: San Miguel;
+  font-family: FiraGo;
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
@@ -1511,6 +1618,7 @@ Tours
 }
 .internal-similar-templates.rooms .internal-similar-template.rooms {
   margin-bottom: 2rem;
+  width:32%;
 }
 
 .room-navigation {
@@ -1641,7 +1749,65 @@ Tours
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Tours Internal
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1789,7 +1955,13 @@ Tours Internal
 
 
 
+
+
+
 About Us
+
+
+
 
 
 
@@ -1852,7 +2024,48 @@ About Us
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Contact Us
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1921,7 +2134,51 @@ Contact Us
 }
 /*
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Internal
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 */
 .day-night-counter {
