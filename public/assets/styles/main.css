@@ -165,7 +165,7 @@ header {
   align-items: start;
 }
 .header-navigation-container {
-  width: 63%;
+  width: 83%;
   display: flex;
   justify-content: start;
   align-items: center;
@@ -325,7 +325,7 @@ header {
   .header-navigation-wrapper {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
   }
   .mobile-navigation-wrapper {
     display: none;
@@ -402,14 +402,14 @@ header {
 .details-container {
   grid-column: 1/2;
   grid-row: 2/3;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
   position: relative;
   z-index: 0;
 }
 .details-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   gap: 3rem;
   flex-direction: column;
 }
@@ -431,9 +431,8 @@ header {
 }
 .tour-details {
   display: flex;
-  width: 63%;
+  width: 83%;
   flex-direction: column;
-  gap: 3rem;
 }
 .tour-details h1 {
   font-family: FiraGo Semibold;
@@ -751,34 +750,7 @@ footer .select-lang {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 index
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1429,79 +1401,7 @@ index
 /* 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Tours
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1741,65 +1641,7 @@ Tours
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Tours Internal
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1947,13 +1789,7 @@ Tours Internal
 
 
 
-
-
-
 About Us
-
-
-
 
 
 
@@ -1970,7 +1806,7 @@ About Us
 .about-us-paragraph-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 10px;
   margin-top: 1rem;
 }
 
@@ -2016,48 +1852,7 @@ About Us
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Contact Us
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -2126,51 +1921,7 @@ Contact Us
 }
 /*
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Internal
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 */
 .day-night-counter {
