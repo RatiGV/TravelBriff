@@ -1599,7 +1599,7 @@ Tours
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
 }
 .internal-similar-templates.rooms .template-description p:nth-child(2) {
   font-family: Lufga-Regular;
