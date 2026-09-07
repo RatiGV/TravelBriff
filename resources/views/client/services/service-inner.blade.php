@@ -4,13 +4,15 @@
     <section class="products-internal-wrapper">
       <div class="products-internal-container services">
         <div class="products-internal-left-column services">
+          @if($service->translate)
           <h1>{{ $service->translate->title }}</h1>
           {!! $service->translate->description !!}
+          @endif
         </div>
         <div class="products-internal-right-column">
           <img
             src="{{ $service->image }}"
-            alt="{{ $service->translate->title }}"
+            alt="{{ $service->translate->title ?? '' }}"
             class="products-internal-large"
           />
           @if($service->images->isNotEmpty())

@@ -3,13 +3,14 @@
 namespace App\Models;
 
 use App\Traits\ActionLog;
+use App\Traits\Uploadable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\Model;
 
 class Textpage extends Model
 {
-    use ActionLog;
+    use ActionLog, Uploadable;
 
     protected $fillable = ['image'];
     private static $current_class = __CLASS__;

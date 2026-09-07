@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Models\Service;
+use App\Models\ServicesTranslate;
 use Illuminate\Http\Request;
 
 class ServicesController extends Controller
@@ -18,7 +19,11 @@ class ServicesController extends Controller
 
     public function inner($serviceID)
     {
-       $service = Service::with('translate')->where('id',$serviceID)->first();
+       $service = Service::with('translate')->where('id',$serviceID)->firstOrFail();
+
+       if (! $service->translate) {
+           $service->setRelation('translate', ServicesTranslate::where('parent_id', $service->id)->first());
+       }
 
        $additionalServices = Service::with(['translate'])->whereNotIn('id',[$serviceID])->inRandomOrder()->limit(3)->get();
 

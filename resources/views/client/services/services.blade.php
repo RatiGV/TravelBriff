@@ -10,6 +10,7 @@
         </div>
         <div class="internal-similar-templates service">
         @forelse($services as $service)
+            @continue(!$service->translate)
             @php
                 $slug  = createSlug($service->translate->title);
             @endphp
