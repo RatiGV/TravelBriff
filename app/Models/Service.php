@@ -6,10 +6,11 @@ use DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Schema;
 use App\Traits\ActionLog;
+use App\Traits\Uploadable;
 
 class Service extends Model
 {
-    use ActionLog;
+    use ActionLog, Uploadable;
 
     protected $fillable = ['image'];
     private static $current_class = __CLASS__;

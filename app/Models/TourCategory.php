@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\ActionLog;
+use App\Traits\Uploadable;
 use DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -11,7 +12,7 @@ use Illuminate\Support\Facades\Schema;
 
 class TourCategory extends Model
 {
-    use ActionLog;
+    use ActionLog, Uploadable;
 
     protected $table = 'product_categories';
 
