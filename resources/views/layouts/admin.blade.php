@@ -81,6 +81,12 @@
                                             <span class="menu-text">@lang('admin.routes.Services')</span>
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="{{ route('Orders') }}" title="@lang('admin.routes.Orders')">
+                                            <i class="khvich-i fas fa-clipboard-list"></i>
+                                            <span class="menu-text">@lang('admin.routes.Orders')</span>
+                                        </a>
+                                    </li>
                                         <li>
                                             <a href="{{ route('EditInformations') }}" title="@lang('admin.routes.Informations')">
                                                 <i class="khvich-i fas fa-info-circle"></i>

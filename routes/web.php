@@ -19,6 +19,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Admin\TourCategoriesController;
 use App\Http\Controllers\Admin\TourController;
 use App\Http\Controllers\Admin\ToursIndexController;
+use App\Http\Controllers\Admin\OrdersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
    Route::get('/services',[ClientServicesController::class,'index'])->name('ClientServices');
    Route::get('/tours',[ClientToursController::class,'index'])->name('ClientTours');
    Route::get('/tour/{tour}',[ClientToursController::class,'inner'])->name('ClientTourInner');
+   Route::post('/tour/{tour}/request',[ClientToursController::class,'storeOrder'])->name('StoreTourOrder');
 });
 
 Route::get('/admin/login', [LoginController::class, 'index'])->middleware('AdminLogin')->name('LoginPageAdmin');
@@ -123,6 +125,12 @@ Route::middleware(['admin', 'check_permission'])->group(function () {
             Route::post('create', [ServicesController::class, 'store'])->name('StoreServices');
             Route::get('/edit/{id}', [ServicesController::class, 'edit'])->name('EditServices');
             Route::post('update/{id}', [ServicesController::class, 'update'])->name('UpdateServices');
+        });
+
+        // ტურის მოთხოვნები
+        Route::prefix('orders')->group(function () {
+            Route::get('/', [OrdersController::class, 'index'])->name('Orders');
+            Route::get('/view/{id}', [OrdersController::class, 'show'])->name('ViewOrders');
         });
 
 

@@ -33,6 +33,86 @@
         <div class="tour-price-info">
           <div class="tour-price">{{ $tour->price }} <span>₾</span></div>
         </div>
+        <div class="tour-request-form-wrapper" id="tour-request-form">
+          <p class="tour-request-form-title">{{ trans('Request this tour') }}</p>
+
+          <form class="tour-request-form" method="POST" action="{{ route('StoreTourOrder', $tour->id) }}#tour-request-form">
+            @csrf
+            <div class="tour-request-form-row">
+              <div class="tour-request-form-field">
+                <label for="first_name">{{ trans('Name') }} *</label>
+                <input type="text" id="first_name" name="first_name" value="{{ old('first_name') }}" required>
+                @error('first_name')<span class="tour-request-form-error">{{ $message }}</span>@enderror
+              </div>
+              <div class="tour-request-form-field">
+                <label for="last_name">{{ trans('Surname') }} *</label>
+                <input type="text" id="last_name" name="last_name" value="{{ old('last_name') }}" required>
+                @error('last_name')<span class="tour-request-form-error">{{ $message }}</span>@enderror
+              </div>
+            </div>
+            <div class="tour-request-form-row">
+              <div class="tour-request-form-field">
+                <label for="email">{{ trans('Email') }} *</label>
+                <input type="email" id="email" name="email" value="{{ old('email') }}" required>
+                @error('email')<span class="tour-request-form-error">{{ $message }}</span>@enderror
+              </div>
+              <div class="tour-request-form-field">
+                <label for="phone">{{ trans('Phone') }} *</label>
+                <input type="text" id="phone" name="phone" value="{{ old('phone') }}" required>
+                @error('phone')<span class="tour-request-form-error">{{ $message }}</span>@enderror
+              </div>
+            </div>
+            <div class="tour-request-form-row">
+              <div class="tour-request-form-field">
+                <label for="persons">{{ trans('Quantity of persons') }} *</label>
+                <input type="number" id="persons" name="persons" min="1" value="{{ old('persons', 1) }}" required>
+                @error('persons')<span class="tour-request-form-error">{{ $message }}</span>@enderror
+              </div>
+            </div>
+            <div class="tour-request-form-row">
+              <div class="tour-request-form-field">
+                <label for="arrival_date">{{ trans('Arrival date') }}</label>
+                <input type="date" id="arrival_date" name="arrival_date" value="{{ old('arrival_date') }}">
+                @error('arrival_date')<span class="tour-request-form-error">{{ $message }}</span>@enderror
+              </div>
+              <div class="tour-request-form-field">
+                <label for="return_date">{{ trans('Return date') }}</label>
+                <input type="date" id="return_date" name="return_date" value="{{ old('return_date') }}">
+                @error('return_date')<span class="tour-request-form-error">{{ $message }}</span>@enderror
+              </div>
+            </div>
+            <div class="tour-request-form-row">
+              <div class="tour-request-form-field">
+                <label for="pickup_location">{{ trans('Pickup location') }}</label>
+                <input type="text" id="pickup_location" name="pickup_location" value="{{ old('pickup_location') }}">
+                @error('pickup_location')<span class="tour-request-form-error">{{ $message }}</span>@enderror
+              </div>
+              <div class="tour-request-form-field">
+                <label for="return_location">{{ trans('Return location') }}</label>
+                <input type="text" id="return_location" name="return_location" value="{{ old('return_location') }}">
+                @error('return_location')<span class="tour-request-form-error">{{ $message }}</span>@enderror
+              </div>
+            </div>
+            <div class="tour-request-form-row">
+              <div class="tour-request-form-field">
+                <label for="captcha">{{ $captcha['a'] }} + {{ $captcha['b'] }} = ? *</label>
+                <input type="text" id="captcha" name="captcha" inputmode="numeric" autocomplete="off" required>
+                @error('captcha')<span class="tour-request-form-error">{{ $message }}</span>@enderror
+              </div>
+            </div>
+            <button type="submit" class="tour-request-form-submit">{{ trans('Send request') }}</button>
+
+            @if(session('tour_order_success'))
+            <div class="tour-request-message tour-request-message--success">
+              {{ trans('Your request has been sent successfully. We will contact you soon.') }}
+            </div>
+            @elseif($errors->any())
+            <div class="tour-request-message tour-request-message--error">
+              {{ trans('Please correct the errors below and try again.') }}
+            </div>
+            @endif
+          </form>
+        </div>
       </div>
     </div>
   </div>

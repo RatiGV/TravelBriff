@@ -18,5 +18,18 @@
     "Per person": "1 პერსონაზე",
     "Same Tours": "მსგავსი ტურები",
     "days": "დღე",
-    "nights": "ღამე"
+    "nights": "ღამე",
+    "Request this tour": "მოითხოვეთ ეს ტური",
+    "Name": "სახელი",
+    "Surname": "გვარი",
+    "Quantity of persons": "პერსონების რაოდენობა",
+    "Arrival date": "ჩამოსვლის თარიღი",
+    "Return date": "გამგზავრების თარიღი",
+    "Pickup location": "აყვანის ადგილი",
+    "Return location": "დაბრუნების ადგილი",
+    "Send request": "მოთხოვნის გაგზავნა",
+    "Your request has been sent successfully. We will contact you soon.": "თქვენი მოთხოვნა წარმატებით გაიგზავნა. ჩვენ მალე დაგიკავშირდებით.",
+    "Please correct the errors below and try again.": "გთხოვთ, გაასწოროთ ქვემოთ მითითებული შეცდომები და სცადოთ თავიდან.",
+    "Please answer the captcha question": "გთხოვთ, უპასუხოთ კითხვას",
+    "The captcha answer is incorrect": "პასუხი არასწორია"
 }
