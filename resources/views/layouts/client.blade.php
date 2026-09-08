@@ -33,18 +33,18 @@
                 <img class="logo" src="{{ $info->logo }}" alt="{{ $info->slogan }}" />
               </a>
               <div class="ending">
-                <div class="select-lang">
-                  @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                  <div class="select-lang" style="float:left;margin-left:3px;width: 2rem;">
                     <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
                       <div class="lang-container-{{ $localeCode }}{{ locale() == $localeCode ? ' change-lang' : '' }}">
                         <span class="lang">{{ strtoupper($localeCode) }}</span>
                       </div>
                     </a>
-                  @endforeach
-                  <div>
-                    <img src="{{ asset('assets/images/icons/langSwitch.svg') }}" alt="Switch Language" />
                   </div>
-                </div>
+                @endforeach
+                {{-- <div>
+                  <img src="{{ asset('assets/images/icons/langSwitch.svg') }}" alt="Switch Language" />
+                </div> --}}
                 <div class="burger-menu">
                   <div class="top-line"></div>
                   <div class="middle-line"></div>
