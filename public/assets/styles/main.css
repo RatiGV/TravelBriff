@@ -389,8 +389,7 @@ header {
 .header {
   display: grid;
   grid-template-columns: 42% 58%;
-  /*grid-template-rows: 0.2fr 1fr;*/
-  grid-template-rows: auto;
+  grid-template-rows: 0.2fr 1fr;
   margin: 0;
   position: relative;
 }
