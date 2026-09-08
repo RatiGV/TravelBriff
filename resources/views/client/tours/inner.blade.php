@@ -119,11 +119,11 @@
 </div>
 <div class="image">
   <div class="color-overlay"></div>
-  <img class="main-placeholder-image tours-internal" src="{{ $tour->image }}" alt="{{ $tour->translate->title }}" />
+  <img class="main-placeholder-image tours-internal" id="tour-gallery-main-image" src="{{ $tour->image }}" alt="{{ $tour->translate->title }}" />
   @if(!empty($tour->images) && $tour->images->count())
-  <div class="gallery-thumbnails">
+  <div class="gallery-thumbnails" id="tour-gallery-thumbnails">
     @foreach($tour->images as $img)
-    <img src="{{ $img->image }}" alt="{{ $tour->translate->title }} {{ $loop->iteration }}" />
+    <img class="gallery-thumb" src="{{ $img->image }}" alt="{{ $tour->translate->title }} {{ $loop->iteration }}" />
     @endforeach
   </div>
   @endif
