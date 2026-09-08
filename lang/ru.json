@@ -18,5 +18,18 @@
     "Per person": "За 1 человека",
     "Same Tours": "Похожие туры",
     "days": "дн.",
-    "nights": "ноч."
+    "nights": "ноч.",
+    "Request this tour": "Заказать этот тур",
+    "Name": "Имя",
+    "Surname": "Фамилия",
+    "Quantity of persons": "Количество человек",
+    "Arrival date": "Дата прибытия",
+    "Return date": "Дата возвращения",
+    "Pickup location": "Место посадки",
+    "Return location": "Место возврата",
+    "Send request": "Отправить заявку",
+    "Your request has been sent successfully. We will contact you soon.": "Ваша заявка успешно отправлена. Мы скоро свяжемся с вами.",
+    "Please correct the errors below and try again.": "Пожалуйста, исправьте ошибки ниже и попробуйте снова.",
+    "Please answer the captcha question": "Пожалуйста, ответьте на вопрос",
+    "The captcha answer is incorrect": "Неверный ответ"
 }
