@@ -877,8 +877,8 @@ index
   font-family: FiraGo;
   font-size: 0.875rem;
 }
-.tour-card-category {
-  font-family: Lufga-Regular;
+.template-description .tour-card-category {
+  font-family: FiraGo;
   font-size: 0.875rem;
   color: #7f7f7f;
 }
@@ -2285,9 +2285,9 @@ Internal
   color: #d9534f;
 }
 .tour-request-form-submit {
-  max-width: 12rem;
-  width: 100%;
-  padding: 13px 24px;
+  width: auto;
+  white-space: nowrap;
+  padding: 13px 32px;
   border-radius: 3.625rem;
   color: #fff;
   font-family: FiraGO;
