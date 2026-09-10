@@ -34,7 +34,7 @@
               </a>
               <div class="ending">
                 @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                  <div class="select-lang" style="float:left;margin-left:3px;width: 2rem;">
+                  <div class="select-lang" style="float:left;margin-left:3px;">
                     <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
                       <div class="lang-container-{{ $localeCode }}{{ locale() == $localeCode ? ' change-lang' : '' }}">
                         <span class="lang">{{ strtoupper($localeCode) }}</span>
@@ -119,7 +119,7 @@
 
           <div class="footer-lang-wrapper">
             @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-              <div class="select-lang" style="float:left;margin-left:3px;width: 2rem;">
+              <div class="select-lang" style="float:left;margin-left:3px;">
                 <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
                   <div class="lang-container-{{ $localeCode }}{{ locale() == $localeCode ? ' change-lang' : '' }}">
                     <span class="lang">{{ strtoupper($localeCode) }}</span>
@@ -148,9 +148,9 @@
           </div>
 
           <div class="footer-contacts">
-            <a href="tel:{{ $contact_info->phone }}">{{ $contact_info->phone }}</a>
+            <a href="https://wa.me/{{ preg_replace('/\D/', '', $contact_info->phone) }}" target="_blank">{{ $contact_info->phone }}</a>
             @if(isset($contact_info->phone_2) && $contact_info->phone_2)
-            <a href="tel:{{ $contact_info->phone_2 }}">{{ $contact_info->phone_2 }}</a>
+            <a href="https://wa.me/{{ preg_replace('/\D/', '', $contact_info->phone_2) }}" target="_blank">{{ $contact_info->phone_2 }}</a>
             @endif
           </div>
         </div>
