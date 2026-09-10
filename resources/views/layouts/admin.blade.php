@@ -122,7 +122,7 @@
                                                 <i class="khvich-i fas fa-desktop pull-right"></i> @lang('admin.go_to_site')
                                             </a>
                                         </li>
-                                        @if(Session::get('admin')->role === 1)
+                                        @if(Session::get('admin')->role == 1)
                                             <li>
                                                 <a href="{{ route('EditConfigurations') }}">
                                                     <i class="khvich-i fas fa-cogs pull-right"></i> @lang('admin.routes.Configurations')

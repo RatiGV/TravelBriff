@@ -877,6 +877,11 @@ index
   font-family: FiraGo;
   font-size: 0.875rem;
 }
+.tour-card-category {
+  font-family: Lufga-Regular;
+  font-size: 0.875rem;
+  color: #7f7f7f;
+}
 .template-description span {
   font-size: 1rem;
 }
@@ -1593,17 +1598,25 @@ Tours
   flex-wrap: wrap;
 }
 .internal-similar-templates.rooms {
-  display: flex;
-  overflow-x: hidden;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 2%;
+  align-items: start;
 }
-.internal-similar-templates.rooms .template-description p:nth-child(2) {
+.internal-similar-templates.rooms .template-description p:nth-child(3) {
   font-family: Lufga-Regular;
   font-size: 0.875rem;
   color: #7f7f7f;
+}
+@media screen and (max-width: 1024px) {
+  .internal-similar-templates.rooms {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 700px) {
+  .internal-similar-templates.rooms {
+    grid-template-columns: 1fr;
+  }
 }
 .template-description {
   font-family: FiraGo;
@@ -1617,7 +1630,7 @@ Tours
 }
 .internal-similar-templates.rooms .internal-similar-template.rooms {
   margin-bottom: 2rem;
-  width:32%;
+  width: 100%;
 }
 
 .room-navigation {
@@ -1625,7 +1638,9 @@ Tours
   flex-direction: row;
   gap: 0.5rem;
   align-items: center;
+  justify-content: center;
   margin: 4rem 0rem 5rem 0rem;
+  grid-column: 1 / -1;
 }
 .room-navigation img {
   width: 24px;
