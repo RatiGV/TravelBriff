@@ -1309,7 +1309,7 @@ index
   font-size: 1.5625rem;
   color: #36414e;
   font-family: 'FiraGO Medium';
-  margin-bottom: 3rem;
+  margin-bottom: 0;
 }
 .index-about-us-content {
   display: flex;

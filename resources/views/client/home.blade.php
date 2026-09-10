@@ -94,9 +94,9 @@
 
 <section class="index-about-us-wrapper">
   <div class="index-about-us-container">
-    <h2>{{ trans('About') }}</h2>
     <div class="index-about-us-content">
       <div>
+        <h2>{{ trans('About') }}</h2>
         {!! $about->short_description !!}
         <button onclick="window.location.href='{{ route('ClientAbout') }}'">{{ trans('See more') }}</button>
       </div>
