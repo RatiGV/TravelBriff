@@ -32,7 +32,7 @@
       </button>
     </div>
     <div class="filter-buttons">
-      <button data-category="All" class="active">All</button>
+      <button data-category="All" class="active">{{ trans('All') }}</button>
       @forelse($tourCategories as $category)
         @if($category->products->count())
           <button data-category="{{ \Illuminate\Support\Str::slug($category->translate->title,'-',false) }}">{{ $category->translate->title }}</button>

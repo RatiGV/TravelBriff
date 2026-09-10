@@ -19,7 +19,7 @@
 <section class="tour-list-wrapper">
   <div class="tour-list-container">
     <div class="filter-buttons tours">
-      <button data-category="All" class="active">All</button>
+      <button data-category="All" class="active">{{ trans('All') }}</button>
       @forelse($categories as $category)
         @if($category->paginatedTours->total())
           <button data-category="{{ \Illuminate\Support\Str::slug($category->translate->title,'-',false) }}">{{ $category->translate->title }}</button>
