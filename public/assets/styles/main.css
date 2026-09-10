@@ -1603,11 +1603,6 @@ Tours
   column-gap: 2%;
   align-items: start;
 }
-.internal-similar-templates.rooms .template-description p:nth-child(3) {
-  font-family: Lufga-Regular;
-  font-size: 0.875rem;
-  color: #7f7f7f;
-}
 @media screen and (max-width: 1024px) {
   .internal-similar-templates.rooms {
     grid-template-columns: repeat(2, 1fr);
