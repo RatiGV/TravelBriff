@@ -133,16 +133,14 @@ Route::middleware(['admin', 'check_permission'])->group(function () {
             Route::get('/view/{id}', [OrdersController::class, 'show'])->name('ViewOrders');
         });
 
+        // საკონტაქტო ინფორმაციის გვერდი
+        Route::prefix('informations')->group(function () {
+            Route::get('/', [InformationController::class, 'edit'])->name('EditInformations');
+            Route::post('/update/{id}', [InformationController::class, 'update'])->name('UpdateInformations');
+        });
 
         // ამ გვერდებზე შესვლის უფლება აქვს მხოლოდ სუპერადმინს
         Route::middleware('check_if_super')->group(function () {
-
-            // საკონტაქტო ინფორმაციის გვერდი
-            Route::prefix('informations')->group(function () {
-                Route::get('/', [InformationController::class, 'edit'])->name('EditInformations');
-                Route::post('/update/{id}', [InformationController::class, 'update'])->name('UpdateInformations');
-            });
-
 
             // ადმინისტრატორები
             Route::prefix('admins')->group(function () {

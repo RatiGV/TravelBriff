@@ -5,8 +5,8 @@
 <div class="details-container">
   <div class="details-wrapper">
     <div class="tour-details">
-      <h1>{{ $tour->category->translate->title }}</h1>
-      <p class="tour-subtitle">{{ $tour->translate->title }}</p>
+      <h1>{{ $tour->translate->title }}</h1>
+      <p class="tour-subtitle">{{ $tour->category->translate->title }}</p>
       <div class="about-us-paragraph-wrapper">
         @if($tour->days || $tour->nights)
         <p>{{ trans('site.duration') }}</p>
@@ -31,7 +31,11 @@
           {!! $tour->translate->description !!}
         </div>
         <div class="tour-price-info">
+          @if((float) $tour->price == 1)
+          <div class="tour-price">{{ trans('Price negotiable') }}</div>
+          @else
           <div class="tour-price">{{ $tour->price }} <span>₾</span></div>
+          @endif
         </div>
         <div class="tour-request-form-wrapper" id="tour-request-form">
           <p class="tour-request-form-title">{{ trans('Request this tour') }}</p>
@@ -165,9 +169,14 @@
             @endif
           </div>
           <div class="template-description">
-            <span class="type-of-room">{{ $sameTour->category->translate->title }}</span>
+            <span class="type-of-room">{{ $sameTour->translate->title }}</span>
+            <span class="tour-card-category">{{ $sameTour->category->translate->title }}</span>
             <div class="template-price">
+              @if((float) $sameTour->price == 1)
+              <p class="price-of-room">{{ trans('Price negotiable') }}</p>
+              @else
               <p class="price-of-room">{{ $sameTour->price }} <span>₾</span></p>
+              @endif
             </div>
           </div>
         </div>

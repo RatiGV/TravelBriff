@@ -16,7 +16,7 @@ class CheckIfSuper
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Session::get('admin')->role !== 1) {
+        if (Session::get('admin')->role != 1) {
             return redirect()->route('AdminMainPage');
         }
 

@@ -60,9 +60,14 @@
                   </div>
                   <div class="template-price">
                     <div class="template-description">
-                      <p class="type-of-room">{{ $category->translate->title }}</p>
+                      <p class="type-of-room">{{ $tour->translate->title }}</p>
+                      <p class="tour-card-category">{{ $category->translate->title }}</p>
                       {!! $tour->translate->short_description !!}
+                      @if((float) $tour->price == 1)
+                      <p class="price-of-room">{{ trans('Price negotiable') }}</p>
+                      @else
                       <p class="price-of-room">{{ $tour->price }} <span>₾</span></p>
+                      @endif
                     </div>
                     <div>
                       <img class="arrow-icon" src="{{ asset('assets/images/icons/rightArrow.svg') }}" alt="Right arrow icon" />
