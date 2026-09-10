@@ -12,7 +12,7 @@
 
     <title>@include('layouts.title') - {{ $info->translate->title }}</title>
     <link rel="icon" type="image/x-icon" href="{{ $info->favicon }}">
-    <link rel="stylesheet" href="{{ asset('assets/styles/main.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/styles/main.css') }}?v={{ @filemtime(public_path('assets/styles/main.css')) ?: '1' }}" />
 
     @stack('css')
 
@@ -160,7 +160,7 @@
 {!! $info->analytics !!}
 
 @stack('scripts')
-<script src="{{ asset('assets/scripts/main.js') }}"></script>
+<script src="{{ asset('assets/scripts/main.js') }}?v={{ @filemtime(public_path('assets/scripts/main.js')) ?: '1' }}"></script>
 
 </body>
 </html>
