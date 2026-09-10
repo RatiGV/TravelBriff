@@ -2141,6 +2141,14 @@ Contact Us
   text-decoration: none;
 }
 
+.phone-link {
+  display: block;
+}
+
+.phone-link + .phone-link {
+  margin-top: 0.35rem;
+}
+
 .social-link {
   font-family: FiraGO, sans-serif;
   font-weight: 400;
