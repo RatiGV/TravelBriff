@@ -122,6 +122,7 @@ return [
     'first_name' => 'Name',
     'last_name' => 'Surname',
     'phone' => 'Phone',
+    'phone_2' => 'Phone 2',
     'email' => 'E_mail',
     'persons' => 'Persons',
     'arrival_date' => 'Arrival date',

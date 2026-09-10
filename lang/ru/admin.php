@@ -118,6 +118,7 @@ return [
     'first_name' => 'Имя',
     'last_name' => 'Фамилия',
     'phone' => 'Телефон',
+    'phone_2' => 'Телефон 2',
     'email' => 'Эл. почта',
     'persons' => 'Кол-во персон',
     'arrival_date' => 'Дата прибытия',

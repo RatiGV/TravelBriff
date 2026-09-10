@@ -147,6 +147,9 @@
 
           <div class="footer-contacts">
             <a href="tel:{{ $contact_info->phone }}">{{ $contact_info->phone }}</a>
+            @if(isset($contact_info->phone_2) && $contact_info->phone_2)
+            <a href="tel:{{ $contact_info->phone_2 }}">{{ $contact_info->phone_2 }}</a>
+            @endif
           </div>
         </div>
 
