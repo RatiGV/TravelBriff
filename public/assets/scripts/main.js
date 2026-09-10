@@ -33,7 +33,7 @@ burgerMenu.addEventListener('click', function () {
 });
 
 const buttons = document.querySelectorAll('.filter-buttons button');
-const templates = document.querySelectorAll('.internal-similar-template.tours');
+const templates = document.querySelectorAll('.internal-similar-template.rooms');
 
 buttons.forEach((button) => {
   button.addEventListener('click', function () {
