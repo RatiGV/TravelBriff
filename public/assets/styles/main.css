@@ -261,8 +261,9 @@ header {
   font-family: FiraGo;
   cursor: pointer;
   background-color: rgba(231, 231, 231, 0.6);
-  padding: 0 0;
-  width: 3.5rem;
+  padding: 0 0.6rem;
+  width: auto;
+  flex-shrink: 0;
   height: 1.8125rem;
   display: flex;
   justify-content: space-evenly;
@@ -644,7 +645,8 @@ header {
 }
 .footer-lang-wrapper {
   display: flex;
-  max-width: 64px;
+  flex-wrap: wrap;
+  max-width: 200px;
 }
 .footer-logo,
 .footer-navigation,

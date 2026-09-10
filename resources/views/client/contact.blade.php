@@ -17,9 +17,9 @@
         </div>
         <div>
           <p class="phone-text">{{ trans('Phone') }}</p>
-          <a href="tel:{{ $contact_info->phone }}" target="_blank" class="phone-link">{{ $contact_info->phone }}</a>
+          <a href="https://wa.me/{{ preg_replace('/\D/', '', $contact_info->phone) }}" target="_blank" class="phone-link">{{ $contact_info->phone }}</a>
           @if(isset($contact_info->phone_2) && $contact_info->phone_2)
-          <a href="tel:{{ $contact_info->phone_2 }}" target="_blank" class="phone-link">{{ $contact_info->phone_2 }}</a>
+          <a href="https://wa.me/{{ preg_replace('/\D/', '', $contact_info->phone_2) }}" target="_blank" class="phone-link">{{ $contact_info->phone_2 }}</a>
           @endif
         </div>
         @if(isset($contact_info->email) && $contact_info->email)
