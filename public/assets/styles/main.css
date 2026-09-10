@@ -642,12 +642,13 @@ header {
   max-width: 74px;
   max-height: 67px;
 }
-footer .select-lang {
+.footer-lang-wrapper {
+  display: flex;
   max-width: 64px;
 }
 .footer-logo,
 .footer-navigation,
-footer .select-lang {
+.footer-lang-wrapper {
   flex: 1;
   margin-top: 1rem;
 }
@@ -709,7 +710,7 @@ footer .select-lang {
     order: 4;
   }
 
-  .select-lang {
+  .footer-lang-wrapper {
     order: 5;
   }
 
@@ -2134,6 +2135,14 @@ Contact Us
   line-height: 1.05rem;
   color: #000000;
   text-decoration: none;
+}
+
+.phone-link {
+  display: block;
+}
+
+.phone-link + .phone-link {
+  margin-top: 0.35rem;
 }
 
 .social-link {

@@ -47,7 +47,7 @@
         </div>
     </div>
 </div>
-@if(Session::get('admin')->role === 1)
+@if(Session::get('admin')->role == 1)
 <div class="x_panel">
     <div class="x_title">
         <h2>@lang('admin.info_and_configuration')</h2>
