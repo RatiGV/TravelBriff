@@ -117,13 +117,15 @@
             </nav>
           </div>
 
-          <div class="select-lang">
+          <div class="footer-lang-wrapper">
             @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-              <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                <div class="lang-container-{{ $localeCode }}{{ locale() == $localeCode ? ' change-lang' : '' }}">
-                  <span class="lang">{{ strtoupper($localeCode) }}</span>
-                </div>
-              </a>
+              <div class="select-lang" style="float:left;margin-left:3px;width: 2rem;">
+                <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                  <div class="lang-container-{{ $localeCode }}{{ locale() == $localeCode ? ' change-lang' : '' }}">
+                    <span class="lang">{{ strtoupper($localeCode) }}</span>
+                  </div>
+                </a>
+              </div>
             @endforeach
           </div>
 
