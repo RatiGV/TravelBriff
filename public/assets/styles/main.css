@@ -1064,6 +1064,11 @@ index
     font-size: 2rem;
     line-height: 2.5rem;
   }
+  .header.home .tour-details h1 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+    margin-top: 2rem;
+  }
   .tour-details button {
     width: 100%;
   }
