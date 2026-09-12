@@ -1331,7 +1331,7 @@ index
   margin: 0rem 0rem 7rem 0rem;
 }
 .index-about-us-container {
-  width: 91.4%;
+  width: 100%;
 }
 
 .index-about-us-content::before {
@@ -1432,7 +1432,7 @@ index
     max-width: 57rem;
   }
   .index-about-us-container {
-    width: 83%;
+    width: 100%;
   }
   .index-about-us-wrapper {
     justify-content: center;
