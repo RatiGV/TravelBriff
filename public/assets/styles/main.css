@@ -516,6 +516,25 @@ header {
   height: 100%;
   background-color: rgba(255, 255, 255, 0.2);
   pointer-events: none;
+  z-index: 2;
+}
+.tour-details.hero-slide {
+  display: none;
+}
+.tour-details.hero-slide.active {
+  display: flex;
+}
+.main-placeholder-image.hero-slide-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 1s ease-in-out;
+}
+.main-placeholder-image.hero-slide-image.active {
+  opacity: 1;
+  z-index: 1;
 }
 
 .footer {

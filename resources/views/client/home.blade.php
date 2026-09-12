@@ -3,13 +3,15 @@
 @section('hero')
 <div class="details-container main-details">
   <div class="details-wrapper">
-    <div class="tour-details">
+    @foreach($sliders as $index => $slider)
+    <div class="tour-details hero-slide{{ $index === 0 ? ' active' : '' }}">
       <h1>{{ $slider->translate->title }}</h1>
       <p>{!! $slider->translate->short_description !!}</p>
       <button onclick="window.location.href='{{ !is_null($slider->url) ? $slider->url : route('ClientTours') }}'">
         {{ !is_null($slider->translate->button_title) ? $slider->translate->button_title : trans('Tours') }}
       </button>
     </div>
+    @endforeach
     <div class="scroll">
       <p>{{ trans('See more') }}</p>
       <img src="{{ asset('assets/images/icons/scroll.svg') }}" alt="Scroll" />
@@ -18,7 +20,9 @@
 </div>
 <div class="image">
   <div class="color-overlay"></div>
-  <img class="main-placeholder-image" src="{{ $slider->image }}" alt="{{ $slider->translate->title }}" />
+  @foreach($sliders as $index => $slider)
+  <img class="main-placeholder-image hero-slide-image{{ $index === 0 ? ' active' : '' }}" src="{{ $slider->image }}" alt="{{ $slider->translate->title }}" />
+  @endforeach
 </div>
 @endsection
 
@@ -107,3 +111,21 @@
   </div>
 </section>
 @endsection
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var textSlides = document.querySelectorAll('.details-wrapper .hero-slide');
+  var imageSlides = document.querySelectorAll('.image .hero-slide-image');
+  if (textSlides.length < 2) return;
+  var current = 0;
+  setInterval(function () {
+    textSlides[current].classList.remove('active');
+    imageSlides[current].classList.remove('active');
+    current = (current + 1) % textSlides.length;
+    textSlides[current].classList.add('active');
+    imageSlides[current].classList.add('active');
+  }, 3000);
+});
+</script>
+@endpush
