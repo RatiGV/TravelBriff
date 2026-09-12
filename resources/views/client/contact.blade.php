@@ -29,7 +29,6 @@
         </div>
         @endif
         <div>
-          <p class="social-text">{{ trans('Social networks') }}</p>
           <div class="social-media-contact">
             @if($info->facebook)
             <div>
