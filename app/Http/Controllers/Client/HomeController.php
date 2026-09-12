@@ -13,7 +13,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $this->data['slider'] = Slider::with('translate')->first();
+        $this->data['sliders'] = Slider::with('translate')->where('status',1)->orderBy('sort','asc')->get();
 
         $this->data['about'] = Textpage::getItemInfo(1,locale());
 
