@@ -8,8 +8,8 @@
     <div class="tour-details hero-slide{{ $index === 0 ? ' active' : '' }}">
       <h1>{{ $slider->translate->title }}</h1>
       <p>{!! $slider->translate->short_description !!}</p>
-      <button onclick="window.location.href='{{ !is_null($slider->url) ? $slider->url : route('ClientTours') }}'">
-        {{ !is_null($slider->translate->button_title) ? $slider->translate->button_title : trans('Tours') }}
+      <button onclick="window.location.href='{{ route('ClientTours') }}'">
+        {{ trans('Tours') }}
       </button>
     </div>
     @endforeach
