@@ -1415,7 +1415,7 @@ index
   flex: 1;
 }
 
-@media (max-width: 1880px) {
+@media (max-width: 1024px) {
   .index-about-us-content div:nth-child(1) {
     order: 2;
     max-height: 100%;
