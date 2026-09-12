@@ -45,9 +45,12 @@
       @empty
       @endforelse
     </div>
-    <div class="internal-similar-templates">
+    <div class="internal-similar-templates rooms">
+      @php($shownToursCount = 0)
       @forelse($tourCategories as $category)
         @forelse($category->products as $product)
+        @continue($shownToursCount >= 12)
+        @php($shownToursCount++)
         <div
           class="internal-similar-template rooms"
           data-category="{{ \Illuminate\Support\Str::slug($category->translate->title,'-',false) }}"
