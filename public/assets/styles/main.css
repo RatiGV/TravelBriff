@@ -394,6 +394,10 @@ header {
   margin: 0;
   position: relative;
 }
+.header.home {
+  height: 100vh;
+  overflow: hidden;
+}
 header {
   grid-column: 1/2;
   grid-row: 1/2;
@@ -1031,6 +1035,10 @@ index
     grid-template-rows: auto auto auto;
     height: auto;
   }
+  .header.home {
+    grid-template-rows: auto 45vh 1fr;
+    height: 100vh;
+  }
   header {
     grid-column: 1/2;
     grid-row: 1/2;
@@ -1038,6 +1046,9 @@ index
   .image {
     grid-column: 1/2;
     grid-row: 2/3;
+  }
+  .header.home .image {
+    height: 45vh;
   }
   .details-container {
     grid-column: 1/2;

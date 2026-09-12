@@ -1,3 +1,4 @@
+@php($headerClass = 'home')
 @extends('layouts.client')
 
 @section('hero')
