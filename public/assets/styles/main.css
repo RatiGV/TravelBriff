@@ -856,7 +856,7 @@ index
 }
 .image-container {
   position: relative;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 .internal-similar-templates {
   display: flex;
@@ -974,7 +974,6 @@ index
 @media screen and (max-width: 1880px) {
   .internal-similar-templates {
     flex-direction: row;
-    overflow-x: scroll;
     gap: 1rem;
   }
 }
